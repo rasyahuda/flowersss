@@ -68,7 +68,7 @@ function updateCountdown() {
   // ======================================================================
   // LOGIKA HARI H (20 JUNI 2026)
   // ======================================================================
-  if (difference > 0) { 
+  if (difference <= 0) { 
     // Sudah masuk tanggal 20 Juni atau lewat
     note.innerText = "Hari ini adalah hari spesialnya! 🎉";
     if(btnGift) {
