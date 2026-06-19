@@ -1,0 +1,288 @@
+:root {
+  --bg-gradient: radial-gradient(circle at center, #26162d 0%, #0d0712 100%);
+  --glass-bg: rgba(22, 14, 28, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --text-main: #f5f0fa;
+  --text-muted: #bfaec6;
+  --accent-pink: #dfb2bc;
+  --accent-glow: rgba(223, 178, 188, 0.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ======================================================================
+   EFEK BACKGROUND PARTIKEL BINTANG & DEKORASI BUNGA BERGUGURAN
+   ====================================================================== */
+.stars-container, .flower-container {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+}
+.stars-container { z-index: 1; }
+.flower-container { z-index: 3; overflow: hidden; }
+
+.star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: floatingPulse var(--d, 3s) infinite ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes floatingPulse {
+  0%, 100% { opacity: 0.1; transform: scale(0.6) translateY(0); }
+  50% { opacity: 0.8; transform: scale(1.2) translateY(-15px); }
+}
+
+.flower-petal {
+  position: absolute;
+  top: -50px;
+  font-size: 24px;
+  user-select: none;
+  animation: fallAnimation var(--fall-duration) linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fallAnimation {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(105vh) rotate(360deg) translateX(var(--drift-distance)); opacity: 0; }
+}
+
+/* ======================================================================
+   KONTROL STRUKTUR SEKSI & STRUKTUR TENGAH
+   ====================================================================== */
+section {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  overflow-y: auto;
+}
+
+section.active {
+  position: relative;
+  min-height: 100vh;
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px 30px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.max-w-lg { max-width: 580px; }
+.full-width-container { width: 100%; max-width: 800px; }
+.mt-20 { margin-top: 20px; }
+.mt-25 { margin-top: 25px; }
+.italic { font-style: italic; }
+
+/* Tipografi */
+.subtitle {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--accent-pink);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 15px;
+}
+.letter-main-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.italic-title { font-family: 'Playfair Display', serif; font-style: italic; }
+.tagline { font-size: 14px; color: var(--text-muted); font-weight: 300; }
+
+/* Countdown */
+.countdown-wrapper { display: flex; justify-content: center; gap: 12px; margin: 35px 0; }
+.time-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 18px; border-radius: 16px; min-width: 80px;
+}
+.time-box span { font-family: 'Playfair Display', serif; font-size: 2.2rem; display: block; }
+.time-box p { font-size: 9px; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px; }
+.countdown-note { font-size: 12px; color: var(--accent-pink); margin-bottom: 20px; }
+
+/* Buttons */
+.btn {
+  font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 2px; padding: 15px 32px; border-radius: 35px;
+  cursor: pointer; transition: all 0.3s ease; text-transform: uppercase;
+}
+.primary-btn { background: var(--text-main); color: #120a1a; border: none; }
+.primary-btn:hover:not(.disabled) { transform: translateY(-2px); background: var(--accent-pink); box-shadow: 0 10px 25px var(--accent-glow); }
+.secondary-btn { background: transparent; color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.15); }
+.secondary-btn:hover { color: white; border-color: white; background: rgba(255, 255, 255, 0.05); }
+.btn.disabled { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.2); cursor: not-allowed; }
+
+/* Gift Box */
+.gift-box { width: 100px; height: 100px; margin: 40px auto; position: relative; cursor: pointer; }
+.gift-main { width: 100%; height: 80%; background: var(--accent-pink); position: absolute; bottom: 0; border-radius: 0 0 8px 8px; }
+.gift-lid { width: 112%; height: 25%; background: #ecd3d8; position: absolute; top: 0; left: -6%; z-index: 2; border-radius: 4px; transition: transform 0.4s ease; }
+.gift-ribbon { width: 18px; height: 100%; background: #ffffff; position: absolute; left: 50%; transform: translateX(-50%); z-index: 1; }
+.gift-box:hover .gift-lid { transform: translateY(-10px) rotate(-5deg); }
+
+/* ======================================================================
+   FLOATING INTRO POLAROIDS (RESPONSIF HP - AGAR TIDAK TERTUTUP KACA)
+   ====================================================================== */
+.floating-polaroids { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; overflow: hidden; }
+.floating-polaroids .polaroid { background: #ffffff; padding: 6px 6px 16px 6px; box-shadow: 0 12px 25px rgba(0,0,0,0.4); position: absolute; width: 100px; transition: all 0.3s ease; }
+.floating-polaroids .polaroid img { width: 100%; height: 100px; object-fit: cover; }
+.floating-polaroids .polaroid p { color: #333; font-family: 'Playfair Display', serif; font-style: italic; font-size: 10px; margin-top: 4px; text-align: center; }
+
+.p1 { top: 12%; left: 8%; transform: rotate(-12deg); }
+.p2 { top: 12%; right: 8%; transform: rotate(10deg); }
+.p3 { bottom: 12%; left: 10%; transform: rotate(6deg); }
+.p4 { bottom: 12%; right: 10%; transform: rotate(-8deg); }
+
+/* Surat Teks */
+.letter-scroll-box { max-height: 55vh; overflow-y: auto; text-align: left; background: rgba(25, 16, 33, 0.7); padding: 30px; border-radius: 18px; margin: 0 auto; }
+.letter-scroll-box::-webkit-scrollbar { width: 5px; }
+.letter-scroll-box::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+.letter-sub-title { font-size: 13px; font-weight: 600; color: var(--accent-pink); margin-bottom: 20px; text-align: center; }
+.letter-body p { font-size: 13.5px; line-height: 1.9; color: #e4dded; margin-bottom: 18px; font-weight: 300; }
+
+/* ======================================================================
+   OUR MEMORIES GRID ALBUM
+   ====================================================================== */
+.polaroid-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  width: 100%; max-width: 950px; margin: 30px auto; padding: 10px;
+  background: transparent !important;
+}
+.polaroid-card {
+  background: #ffffff; padding: 10px 10px 28px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); border-radius: 2px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;
+}
+.polaroid-card p { display: none !important; }
+.polaroid-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+
+.c1 { transform: rotate(-5deg) translateY(5px); z-index: 2; }
+.c2 { transform: rotate(3deg) translateX(-5px); z-index: 1; }
+.c3 { transform: rotate(-3deg) translateY(-5px); z-index: 3; }
+.c4 { transform: rotate(5deg) translateX(-8px); z-index: 2; }
+.c5 { transform: rotate(4deg) translateY(-5px); z-index: 1; }
+.c6 { transform: rotate(-4deg) translateX(5px); z-index: 3; }
+.c7 { transform: rotate(3deg) translateY(8px); z-index: 2; }
+.c8 { transform: rotate(-5deg) translateX(-4px); z-index: 1; }
+
+.polaroid-card:hover { transform: scale(1.12) rotate(0deg) translateY(-10px); z-index: 99 !important; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); }
+
+/* ======================================================================
+   SEKSI LOVE TIMELINE & CUTE VOUCHERS
+   ====================================================================== */
+.timeline-container { display: flex; flex-direction: column; position: relative; max-width: 500px; margin: 0 auto; padding-left: 20px; border-left: 2px dashed var(--accent-pink); text-align: left; }
+.timeline-item { position: relative; margin-bottom: 30px; }
+.timeline-item::before { content: ''; position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: var(--text-main); border: 2px solid var(--accent-pink); border-radius: 50%; box-shadow: 0 0 8px var(--accent-glow); }
+.timeline-date { font-size: 11px; color: var(--accent-pink); font-weight: 600; letter-spacing: 1px; margin-bottom: 5px; }
+.timeline-content h3 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; margin-bottom: 5px; }
+.timeline-content p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; }
+
+.voucher-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 800px; margin: 20px auto; padding: 10px; }
+.voucher-card { background: linear-gradient(135deg, rgba(40, 24, 51, 0.8) 0%, rgba(20, 12, 28, 0.8) 100%); border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 25px 20px; position: relative; cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease; overflow: hidden; text-align: center; }
+.voucher-card::before, .voucher-card::after { content: ''; position: absolute; width: 16px; height: 16px; background: #0d0712; border-radius: 50%; top: 50%; transform: translateY(-50%); }
+.voucher-card::before { left: -8px; } .voucher-card::after { right: -8px; }
+.voucher-badge { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 8px; background: var(--accent-pink); color: #120a1a; padding: 2px 8px; border-radius: 10px; font-weight: 600; letter-spacing: 1px; }
+.voucher-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin: 15px 0 8px 0; font-weight: 400; }
+.voucher-card p { font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px; }
+.claim-text { font-size: 10px; color: var(--accent-pink); font-weight: 500; border-top: 1px solid rgba(255,255,255,0.05); display: block; padding-top: 10px; }
+.voucher-card:hover { transform: translateY(-5px); border-color: var(--accent-pink); box-shadow: 0 10px 20px rgba(223, 178, 188, 0.1); }
+
+/* ======================================================================
+   FRAME PEMUTAR VIDEO VERTIKAL (TIDAK KECROP)
+   ====================================================================== */
+.video-wrapper {
+  width: 100%; max-width: 360px; aspect-ratio: auto; background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px; overflow: hidden; margin: 25px auto;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 1px solid var(--glass-border);
+}
+video { width: 100%; height: auto; display: block; object-fit: contain; }
+
+/* Closing & Animations */
+.closing-dynamic-text { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; margin-bottom: 20px; animation: textMorph 6s infinite ease-in-out; }
+.forever-yours { font-family: 'Playfair Display', serif; font-style: italic; margin-top: 30px; color: var(--accent-pink); }
+
+@keyframes textMorph {
+  0%, 100% { opacity: 1; filter: blur(0px); }
+  23% { opacity: 1; filter: blur(0px); }
+  25% { opacity: 0; filter: blur(10px); }
+  30% { opacity: 0; }
+  33% { opacity: 1; filter: blur(0px); }
+  58% { opacity: 1; filter: blur(0px); }
+  60% { opacity: 0; filter: blur(10px); }
+  65% { opacity: 0; }
+  68% { opacity: 1; filter: blur(0px); }
+}
+
+@media (min-width: 769px) { .video-wrapper { max-width: 400px; } }
+
+/* 📱 OPTIMASI BREAKPOINT LAYAR HP */
+@media (max-width: 768px) {
+  #sec-letter .glass-card {
+    padding: 30px 20px;
+    max-width: 90%; 
+  }
+  .floating-polaroids .polaroid { 
+    width: 85px; 
+  }
+  .floating-polaroids .polaroid img { 
+    height: 85px; 
+  }
+  .p1 { top: 6%; left: 3%; transform: rotate(-10deg); }
+  .p2 { top: 6%; right: 3%; transform: rotate(8deg); }
+  .p3 { bottom: 6%; left: 3%; transform: rotate(5deg); }
+  .p4 { bottom: 6%; right: 3%; transform: rotate(-6deg); }
+
+  .polaroid-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .voucher-grid { grid-template-columns: 1fr; gap: 20px; }
+  .main-title, .letter-main-head { font-size: 2.2rem; }
+  .closing-dynamic-text { font-size: 2.4rem; }
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Gift</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <audio id="bg-music" loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Wadah Efek Latar Belakang -->
+  <div class="stars-container" id="stars"></div>
+  <div class="flower-container" id="flowers"></div>
+
+  <!-- SEKSI 1: COUNTDOWN -->
+  <section id="sec-countdown" class="active">
+    <div class="glass-card text-center">
+      <p class="subtitle">✦ MENGHITUNG HARI ✦</p>
+      <h1 class="main-title">Her Special Day<br><span class="italic-title">is Coming</span></h1>
+      <p class="tagline">Sesuatu yang indah sedang menunggumu ✨</p>
+      
+      <div class="countdown-wrapper">
+        <div class="time-box"><span id="days">00</span><p>HARI</p></div>
+        <div class="time-box"><span id="hours">00</span><p>JAM</p></div>
+        <div class="time-box"><span id="minutes">00</span><p>MENIT</p></div>
+        <div class="time-box"><span id="seconds">00</span><p>DETIK</p></div>
+      </div>
+
+      <p class="countdown-note" id="countdown-note">⏳ Menghitung mundur...</p>
+      <button id="btn-open-gift" class="btn primary-btn">OPEN HER GIFT 🎁</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 2: KADO INTERAKTIF -->
+  <section id="sec-gift">
+    <div class="section-container">
+      <p class="subtitle">✦ ADA SESUATU UNTUKMU ✦</p>
+      <div class="gift-box" id="gift-box">
+        <div class="gift-lid"></div>
+        <div class="gift-ribbon"></div>
+        <div class="gift-main"></div>
+      </div>
+      <p class="tagline">Klik kado untuk membuka hadiahmu ✨</p>
+    </div>
+  </section>
+
+  <!-- SEKSI 3: INTRO SURAT + POLAROID MELAYANG (SUDAH AMAN DI HP) -->
+  <section id="sec-letter">
+    <div class="floating-polaroids">
+      <div class="polaroid p1"><img src="img/WIN_20260523_11_11_26_Pro.jpg" alt="Memory"><p>Us ❤️</p></div>
+      <div class="polaroid p2"><img src="img/IMG20251231095910_021848.jpg" alt="Memory"><p>Happy Day ✨</p></div>
+      <div class="polaroid p3"><img src="img/IMG20251230191120_082848.jpg" alt="Memory"><p>Mine 🔗</p></div>
+      <!-- Pastikan file foto4.jpg ditaruh di dalam folder img/ agar tidak broken lagi -->
+      <div class="polaroid p4"><img src="img/foto4.jpg" alt="Memory"><p>Together 🌙</p></div>
+    </div>
+
+    <div class="glass-card text-center max-w-lg">
+      <p class="subtitle">✦ A LOVE LETTER FOR YOU ✦</p>
+      <h1 class="main-title">Your Special Day</h1>
+      <p class="tagline">Created with love, just for you</p>
+      <button id="btn-read-letter" class="btn primary-btn">READ MY LETTER 💌</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 4: ISI SURAT UTAMA -->
+  <section id="sec-letter-content">
+    <div class="text-center full-width-container">
+      <h1 class="letter-main-head">Happy Birthday</h1>
+      
+      <div class="glass-card max-w-lg letter-scroll-box">
+        <div class="letter-body">
+          <p class="letter-sub-title">✦ HAPPY BIRTHDAY SAYANGKUU ❤️ ✦</p>
+          <p>Selamat ulang tahun yaa Selfa elly Franseska..kesayanganku! Hari ini hari yang spesial banget karena hari ini adalah hari lahir orang yang paling berarti di hidupku.</p>
+          <p>Terima kasih sudah selalu ada, udah bikin hari-hariku lebih bahagia, dan udah menjadi alasan aku tersenyum setiap hari. Aku bersyukur banget bisa kenal dan punya kamu sampai sekarang.</p>
+          <p>Di umur yang baru ini, aku cuma mau doain semoga semua hal baik selalu datang ke hidup sayang. Semoga sehat selalu, panjang umur, dimudahkan segala urusannya, dan semua impian sayang bisa tercapai satu per satu.</p>
+          <p>Tetap jadi pribadi yang kuat, baik, dan luar biasa seperti sekarang ya. Jangan lupa kalau aku selalu ada buat sayang dalam keadaan apa pun.</p>
+          <p>Sekali lagi, selamat ulang tahun sayangku. Semoga hari ini penuh kebahagiaan dan tahun ini menjadi tahun terbaik untuk sayang.</p>
+          <p class="text-right italic" style="color: var(--accent-pink); margin-top: 25px;">I love you, today, tomorrow, and always. 💖</p>
+        </div>
+      </div>
+      
+      <button id="btn-to-memories" class="btn primary-btn mt-25">OUR MEMORIES 📂</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 5: ALBUM FOTO GRID 4x2 -->
+  <section id="sec-memories">
+    <div class="section-container">
+      <h1 class="letter-main-head">Our Memories</h1>
+      <p class="subtitle" style="margin-bottom: 10px;">✦ EVERY MOMENT CAPTURED IN LOVE ✦</p>
+      
+      <div class="polaroid-grid">
+        <div class="polaroid-card c1"><img src="img/IMG-20260614-WA0021.jpg" alt="Us"></div>
+        <div class="polaroid-card c2"><img src="img/IMG_20260523_151506.jpg" alt="Us"></div>
+        <div class="polaroid-card c3"><img src="img/Desain tanpa judul (42).png" alt="Us"></div>
+        <div class="polaroid-card c4"><img src="img/Desain tanpa judul (43).png" alt="Us"></div>
+        <div class="polaroid-card c5"><img src="img/Desain tanpa judul (3).png" alt="Us"></div>
+        <div class="polaroid-card c6"><img src="img/1781849461923.jpg" alt="Us"></div>
+        <div class="polaroid-card c7"><img src="img/IMG-20260614-WA0013(1).jpg" alt="Us"></div>
+        <div class="polaroid-card c8"><img src="img/IMG-20260614-WA0014(1).jpg" alt="Us"></div>
+      </div>
+
+      <button id="btn-to-video" class="btn primary-btn mt-25">SEE OUR JOURNEY ➔</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 5B: LINIMASA PERJALANAN CINTA -->
+  <section id="sec-timeline">
+    <div class="section-container">
+      <h1 class="letter-main-head">Our Journey</h1>
+      <p class="subtitle" style="margin-bottom: 30px;">✦ SEJAK AWAL KITA MEMULAI CERITA ✦</p>
+      
+      <div class="timeline-container">
+        <div class="timeline-item">
+          <div class="timeline-date">25 Maret 2025</div>
+          <div class="timeline-content">
+            <h3>Pertama Kali Kenal ✨</h3>
+            <p>Hari di mana obrolan pertama kita dimulai. Nggak nyangka ya, dari yang awalnya yg kita jalanin sekarang bisa sejauh ini.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">29 January 2026</div>
+          <div class="timeline-content">
+            <h3>First Date 🍟</h3>
+            <p>Inget banget pas pertama kali jalan bareng, suasananya ngga canggung sm sekali si cintakuu tapi seru banget sampai nggak mau pulang cepat-cepat.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">25 Maret 2025 - Now</div>
+          <div class="timeline-content">
+            <h3>my lovv 🔗</h3>
+            <p>Saat kita buat saling jaga, saling sayang, dan berjalan bareng menghadapi semuanya sama-sama.</p>
+          </div>
+        </div>
+      </div>
+      
+      <button id="btn-to-vouchers" class="btn primary-btn mt-25">CUTE VOUCHERS FOR YOU 👉</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 5C: KUPON KLAIM MANJA -->
+  <section id="sec-vouchers">
+    <div class="section-container">
+      <h1 class="letter-main-head">Cute Vouchers</h1>
+      <p class="subtitle" style="margin-bottom: 25px;">✦ KUPON KHUSUS YANG BISA KAMU KLAIM KAPAN AJA ✦</p>
+      
+      <div class="voucher-grid">
+        <div class="voucher-card" onclick="claimVoucher('Kupon Dituruti Kemauannya Seharian 👑')">
+          <div class="voucher-badge">BIRTHDAY ONLY</div>
+          <h3>Kupon Ratu</h3>
+          <p>Dituruti semua kemauannya seharian penuh tanpa tapi!</p>
+          <span class="claim-text">Klik untuk Klaim ✨</span>
+        </div>
+
+        <div class="voucher-card" onclick="claimVoucher('Kupon Pengering Air Mata / Deep Talk 🧸')">
+          <div class="voucher-badge">LIMITED</div>
+          <h3>Deep Talk</h3>
+          <p>Kupon untuk dengerin semua keluh kesahmu.</p>
+          <span class="claim-text">Klik untuk Klaim ✨</span>
+        </div>
+
+        <div class="voucher-card" onclick="claimVoucher('Kupon Jajan / Ice Cream Date 🍦')">
+          <div class="voucher-badge">ANYTIME</div>
+          <h3>Ice Cream Date</h3>
+          <p>Klaim ini kalau kamu lagi pengen es krim atau jajan mendadak!</p>
+          <span class="claim-text">Klik untuk Klaim ✨</span>
+        </div>
+      </div>
+      
+      <button id="btn-vouchers-to-video" class="btn primary-btn mt-25">WATCH VIDEO 🎬</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 6: PEMUTAR 4 VIDEO MESSAGE -->
+  <section id="sec-video">
+    <div class="glass-card max-w-lg text-center">
+      <h2 class="section-title">Our Moments</h2>
+      <p class="subtitle">✦ SPECIAL VIDEO MESSAGES FOR YOU ✦</p>
+      
+      <div class="video-wrapper">
+        <video id="wish-video" controls playsinline preload="auto">
+          <source src="video/lv_7504336294919671101_20260618161806.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video id="wish-video-2" controls playsinline preload="auto">
+          <source src="video/lv_7646412781893225744_20260618155002.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video id="wish-video-3" controls playsinline preload="auto">
+          <source src="video/lv_7606147590337416501_20260619125424.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video id="wish-video-4" controls playsinline preload="auto">
+          <source src="video/lv_7213601457449225473_20260619135051.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div style="margin: 20px 0; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+        Eummm ilove you sayanggg forever, yaa semoga kmu suka yaaa setiap momen dan setiap video yang kamu puter itubermakna juga dan sangat penting bagi kita.💗🎈
+      </div>
+
+      <button id="btn-to-wishes" class="btn primary-btn mt-20">BIRTHDAY WISHES ✉️</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 7: WISHES BAHASA INGGRIS -->
+  <section id="sec-wishes">
+    <div class="glass-card max-w-lg text-center">
+      <h2 class="letter-title">Birthday Wishes</h2>
+      <p class="subtitle">Happy Birthday, my love 🤍</p>
+      <div class="letter-body italic text-center">
+        <p>"I wish you happiness, good health, success, and endless blessings in this new chapter of your life. May all your dreams come true, your days be filled with joy, and your heart always find peace. Thank you for being such a wonderful part of my life. I hope this year brings you everything you've been wishing for. Stay happy, stay healthy, and keep shining. I love you always." ❤️</p>
+      </div>
+      <button id="btn-to-closing" class="btn primary-btn mt-20">ONE MORE THING 👉</button>
+    </div>
+  </section>
+
+  <!-- SEKSI 8: PENUTUP TEKS DINAMIS -->
+  <section id="sec-closing">
+    <div class="text-center max-w-lg">
+      <h1 class="closing-dynamic-text" id="closing-text">HAPPY BIRTHDAY</h1>
+      <p class="tagline">Thank you for being part of my life.<br>I hope this little gift can make your special day even more beautiful.</p>
+      <p class="forever-yours">Forever yours, ❤️</p>
+      <button id="btn-replay" class="btn secondary-btn mt-25">🔄 REPLAY FROM START</button>
+    </div>
+  </section>
+
+  <script src="jancok.js"></script>
+</body>
+</html>
